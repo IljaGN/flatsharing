@@ -22,6 +22,6 @@ public class Credentials {
   private Boolean expired;
 
   @MapsId
-  @OneToOne
+  @OneToOne(mappedBy = "credentials")
   private User user;
 }

@@ -12,7 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -35,10 +37,12 @@ public class User implements UserDetails {
   private String middleName;
   private String lastName;
 
-  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  @OneToOne(cascade = CascadeType.ALL)
+  @PrimaryKeyJoinColumn
   private Credentials credentials;
 
-  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  @OneToOne(cascade = CascadeType.ALL)
+  @PrimaryKeyJoinColumn
   private AccountStatus status;
 
   @Transient

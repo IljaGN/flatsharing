@@ -22,6 +22,6 @@ public class AccountStatus {
   private Boolean expired;
 
   @MapsId
-  @OneToOne
+  @OneToOne(mappedBy = "status")
   private User user;
 }
