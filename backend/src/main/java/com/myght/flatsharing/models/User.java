@@ -30,9 +30,17 @@ public class User implements UserDetails {
   @GeneratedValue(generator = "pk_seq", strategy = GenerationType.SEQUENCE)
   private Integer id;
 
+  @Transient
+  private String nickname;
   private String firstName;
   private String middleName;
   private String lastName;
+  @Transient
+  private String publicPhone;
+  @Transient
+  private String privatePhone;
+  @Transient
+  private String email;
 
   @OneToOne(cascade = CascadeType.ALL)
   @PrimaryKeyJoinColumn
@@ -44,8 +52,10 @@ public class User implements UserDetails {
 
   @Transient
   private List<Role> authorities;
-//  private List ads;
-//  private List selfAds;
+  @Transient
+  private List<FollowAds> ads;
+  @Transient
+  private List<Advertisements> selfAds;
 //  private List documents;
 
   public UserDto toDto() {
